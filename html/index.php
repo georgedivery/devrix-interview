@@ -616,7 +616,6 @@
                                     </p>
                                     <a href=""></a>
                                 </article>
-                            </li>
 
                             <li>
                                 <article>

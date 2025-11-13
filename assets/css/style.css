@@ -435,7 +435,7 @@ section:not([class]) { padding: 50px 0; }
 
 .section-category-news { padding-bottom: 72px;  }
 .section-category-news .section-head { border-top: 1px solid var(--hover-bg); padding: 26px 0 23px; }
-.section-category-news .section-title { letter-spacing: 0.1rem; }
+.section-category-news .section-title { letter-spacing: 0.1rem; text-transform: uppercase; }
 
 .section_five-news { padding-bottom: 32px; } 
 .section_five-news .section-body { display: flex; flex-wrap: wrap; margin: 0 -20px; }
@@ -528,6 +528,7 @@ section:not([class]) { padding: 50px 0; }
 \* ------------------------------------------------------------ */
 
 .list-news { list-style: none; display: flex; flex-wrap: wrap; margin: 0 -20px; } 
+.list-news.slick-slider { display: block; } 
 .list-news > li { width: 100%; padding: 0 20px; margin-bottom: 40px; }
 .section_five-news .section-content .list-news > li { width: 50%; } 
 

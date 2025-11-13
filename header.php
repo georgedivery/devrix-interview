@@ -17,7 +17,15 @@
 
 	<!-- We will use fontawesome 7 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css " type="text/css" media="all" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+        
 	<?php wp_head(); ?>
   </head>
 
@@ -83,12 +91,10 @@
             <div class="shell">
                 <div class="navigation">
 					<?php
-					wp_nav_menu([
-						'theme_location'  => 'primary',
-						'container_class' => 'navbar-collapse collapse',
-						'container_id'    => 'navbar',
-						'menu_class'      => 'nav navbar-nav navbar-right',
-						'fallback_cb'     => 'wp_page_menu',
+					wp_nav_menu([ 
+						'container_class' => 'nav',
+						'container_id'    => '',
+						'menu_class'      => '', 
 					]);
 					?>
 				</div>

@@ -29,7 +29,11 @@ endif;
 ?>
 
 <?php while (have_rows('sections')) : the_row(); ?>
-<?php if (get_row_layout() === 'hero_section') : ?>
-<?php include 'sections/hero/index.php'; ?>
-<?php endif; ?>
+    <?php if (get_row_layout() === 'hero') : ?>
+    <?php include 'sections/hero/index.php'; ?>
+    <?php endif; ?>
+
+    <?php if (get_row_layout() === 'section_category_news') : ?>
+    <?php include 'sections/section_category_news/index.php'; ?>
+    <?php endif; ?> 
 <?php endwhile; // end "while" flex content?>

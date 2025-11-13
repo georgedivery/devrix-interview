@@ -29,12 +29,12 @@ function webbeb_scripts()
         file_exists($theme_dir . '/assets/css/style.css') ? filemtime($theme_dir . '/assets/css/style.css') : null
     );
 
-    $headroom_path = $theme_dir . '/DevriX-html/assets/js/headroom.js';
+    $headroom_path = $theme_dir . '/html/assets/js/headroom.js';
     $headroom_ver  = file_exists($headroom_path) ? filemtime($headroom_path) : null;
 
     wp_enqueue_script(
         'headroom',
-        $theme_uri . '/DevriX-html/assets/js/headroom.js',
+        $theme_uri . '/html/assets/js/headroom.js',
         [],
         $headroom_ver,
         true

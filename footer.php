@@ -3,7 +3,7 @@
         <div class="footer-inner">
             <div class="footer-content">
                 <div class="footer-logo-outer">
-                    <a href="#" class="footer-logo">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="footer-logo">
                         L
                     </a>
                 </div>
@@ -44,27 +44,19 @@
 
             <div class="footer-aside">
                 <p class="copy">
-                    Project © 2023
+                    <?php echo esc_html(get_bloginfo('name')); ?> © <span><?php echo date('Y'); ?></span>
                 </p>
 
                 <ul class="socials">
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-brands fa-square-instagram"></i>
-                        </a>
-                    </li>
+                    <?php if (have_rows('socials', 'option')) : ?>
+                        <?php while (have_rows('socials', 'option')) : the_row(); ?> 
+                            <li>
+                                <a target="_blank" href="<?php echo get_sub_field('url'); ?>">
+                                   <?php echo get_sub_field('icon'); ?>
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

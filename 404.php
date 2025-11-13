@@ -1,4 +1,3 @@
-
 <?php
 
 /**
@@ -12,25 +11,27 @@
 <?php get_header(); ?>
 
 <div class="main">
-	<div class="shell">
-		<section class="simple-section section_404 text-center dark">
-			<article class="article">
-					<div class="article-title">
-						<h1>
-							404
-						</h1>
+    <section class="section-post">
+        <div class="shell">
+            <div class="section-head">
+                <h2 class="section-title">
+                    404
+                </h2>
+            </div>
 
-						<br>
-					</div><!-- /.article-title -->
+            <div class="section-body">
+                <p>
+                    Page not Found
+                </p>
+				
+                <p>
+                    <a class="btn" href="<?php echo esc_url(home_url('/')); ?>">Go Home</a>
+                </p>
+            </div>
 
-					<div class="artile-content">
-						<p>
-							Page not found
-						</p>
-					</div><!-- /.artile-content --> 
-				</article>
-		</section><!-- /.simple-section --> 
-	</div><!-- /.shell --> 
+
+        </div>
+    </section><!-- /.shell -->
 </div>
- 
+
 <?php get_footer(); ?>

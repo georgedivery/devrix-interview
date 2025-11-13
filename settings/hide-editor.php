@@ -1,15 +1,8 @@
 <?php
-/**
- * Hide editor on specific pages.
- *   - Use $remove_editor_from_titles array to remove editor from pages with specific title
- *     Example: $remove_editor_from_titles = ['Homepage', 'Home'];
- *   - Use $templates array to add specific templates.
- */
+
 function hide_editor($arg)
 {
-    $target_template = 'theme-template.php';
-
-    // Get the Post ID.
+    $target_template = 'theme-template.php'; 
     $post_id = null;
 
     if (isset($_GET['post'])) {
@@ -21,8 +14,6 @@ function hide_editor($arg)
     if (!$post_id) {
         return;
     }
-
-    // Hide the editor when specific page template is selected.
     $template_file = get_post_meta($post_id, '_wp_page_template', true);
     if ($template_file === $target_template) {
         remove_post_type_support('page', 'editor');

@@ -3,7 +3,7 @@ if (empty($section_posts)) {
     return;
 }
 
-$posts       = array_values($section_posts);
+$posts = array_values($section_posts);
 $date_format = get_option('date_format');
 ?>
 

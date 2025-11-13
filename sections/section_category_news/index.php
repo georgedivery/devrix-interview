@@ -1,26 +1,26 @@
 <?php
 $section_title  = get_sub_field('title');
-$section_revert = (bool) get_sub_field('revert');
-$section_has_background = (bool) get_sub_field('background');
+$section_revert = get_sub_field('revert');
+$section_has_background = get_sub_field('background');
 
-$requested_posts = (int) get_sub_field('number_posts');
+$requested_posts = get_sub_field('number_posts');
 $requested_posts = in_array($requested_posts, [3, 4, 5], true) ? $requested_posts : 5;
 
 $category_field = get_sub_field('category');
-$category_ids   = [];
+$category_ids = [];
 
 if ($category_field instanceof WP_Term) {
-    $category_ids[] = (int) $category_field->term_id;
+    $category_ids[] = $category_field->term_id;
 } elseif (is_numeric($category_field)) {
-    $category_ids[] = (int) $category_field;
+    $category_ids[] = $category_field;
 } elseif (is_array($category_field)) {
     foreach ($category_field as $term) {
         if ($term instanceof WP_Term) {
-            $category_ids[] = (int) $term->term_id;
+            $category_ids[] = $term->term_id;
         } elseif (is_array($term) && isset($term['term_id'])) {
-            $category_ids[] = (int) $term['term_id'];
+            $category_ids[] = $term['term_id'];
         } elseif (is_numeric($term)) {
-            $category_ids[] = (int) $term;
+            $category_ids[] = $term;
         }
     }
 }
@@ -28,8 +28,8 @@ if ($category_field instanceof WP_Term) {
 $category_ids = array_filter(array_map('intval', $category_ids));
 
 $query_args = [
-    'posts_per_page'      => $requested_posts,
-    'post_status'         => 'publish',
+    'posts_per_page' => $requested_posts,
+    'post_status' => 'publish',
     'ignore_sticky_posts' => true,
 ];
 

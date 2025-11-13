@@ -286,6 +286,9 @@ blockquote:last-child { margin-bottom: 0; }
 	.nav > ul li { padding-right: 0px; margin-right: 0px; }
 	.nav > ul li:before { display: none; }
 }
+@media screen and (max-width:767px) {
+	.nav > ul a  { padding: 10px; font-size: 18px; }
+}
 
 
 /* ------------------------------------------------------------ *\
@@ -377,7 +380,7 @@ section:not([class]) { padding: 50px 0; }
 .section-hero .link-more { text-decoration: none; font-weight: 700; }
 .section-hero .link-more i { position: relative; left: 0; transition: left .3s; margin-left: 10px; }
 .section-hero .link-more:hover i { left: 5px; }
-.section-hero h6 { letter-spacing: 0.05rem; margin-bottom: 14px; }
+.section-hero h6 { letter-spacing: 0.05rem; margin-bottom: 14px; text-transform: uppercase; }
 
 @media screen and (max-width:900px) {
 	.section-hero .section-content { width: 100%; }

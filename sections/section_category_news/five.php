@@ -1,18 +1,12 @@
 <?php
-if (empty($section_posts)) {
-    return;
-}
-
-$posts        = array_values($section_posts);
-$featured_post = array_shift($posts);
-
-if (!$featured_post) {
-    return;
-}
-
-$list_posts  = array_slice($posts, 0, 4);
-$date_format = get_option('date_format');
-$variant     = $section_variant_class ?: 'section_five-news';
+    if (empty($section_posts)) {
+        return;
+    } 
+    $posts = array_values($section_posts);
+    $featured_post = array_shift($posts); 
+    $list_posts  = array_slice($posts, 0, 4);
+    $date_format = get_option('date_format');
+    $variant = $section_variant_class ?: 'section_five-news';
 ?>
 
 <section class="section-category-news <?php echo esc_attr($variant); ?><?php echo $section_revert ? ' revert' : ''; ?>">
@@ -29,8 +23,8 @@ $variant     = $section_variant_class ?: 'section_five-news';
                 <ul class="list-news">
                     <?php foreach ($list_posts as $post_item) : ?>
                     <?php
-                    $post_id       = $post_item->ID;
-                    $thumbnail_url = get_the_post_thumbnail_url($post_id, 'medium_large');
+                        $post_id = $post_item->ID;
+                        $thumbnail_url = get_the_post_thumbnail_url($post_id, 'medium_large');
                     ?>
                     <li>
                         <article>
@@ -55,9 +49,9 @@ $variant     = $section_variant_class ?: 'section_five-news';
             <?php endif; ?>
 
             <?php
-            $featured_id      = $featured_post->ID;
-            $featured_image   = get_the_post_thumbnail_url($featured_id, 'large');
-            $featured_author  = get_the_author_meta('display_name', $featured_post->post_author);
+            $featured_id = $featured_post->ID;
+            $featured_image = get_the_post_thumbnail_url($featured_id, 'large');
+            $featured_author = get_the_author_meta('display_name', $featured_post->post_author);
             $featured_excerpt = get_the_excerpt($featured_id);
             ?>
 

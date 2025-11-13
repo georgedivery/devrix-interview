@@ -36,4 +36,9 @@ endif;
     <?php if (get_row_layout() === 'section_category_news') : ?>
     <?php include 'sections/section_category_news/index.php'; ?>
     <?php endif; ?> 
+
+    <?php if (get_row_layout() === 'section_breaking') : ?>
+    <?php include 'sections/section_breaking/index.php'; ?>
+    <?php endif; ?> 
+    
 <?php endwhile; // end "while" flex content?>

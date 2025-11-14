@@ -62,7 +62,7 @@
             <div class="header-top-aside-mobile">
                 <div class="weather">
                     <i class="fa-solid fa-cloud"></i>
-                    <span>#</span>,<strong> # </strong>
+                    <span>-</span>,<strong>-</strong>
                 </div>
 
                 <button class="btn-header-search">
@@ -94,7 +94,7 @@
                 <div class="header-nav-sidebar">
                     <div class="weather">
                         <i class="fa-solid fa-cloud"></i>
-                        <span> 28° </span>, <strong> Sofia </strong>
+                        <span>-</span>,<strong>-</strong>
                     </div>
 
                     <button class="btn-header-search">

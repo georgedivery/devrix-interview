@@ -2,8 +2,7 @@
 	var $win = $(window);
 	var $doc = $(document);
 
-	$doc.ready(function () {
-        console.log('Load')
+	$doc.ready(function () { 
 
         $('.btn-burger').on('click', function(){
             $(this).toggleClass('open')
@@ -14,18 +13,6 @@
             $(this).toggleClass('open')
             $('.header-search').slideToggle()
         });
-
-        // // select your header or whatever element you wish
-        // const header = document.querySelector("#header");
-        // const headerNavOuter = document.querySelector('.header-nav-outer');
-        // const headerNav = headerNavOuter ? headerNavOuter.querySelector('.header-nav') : null;
-
-        // if (headerNavOuter && headerNav) {
-        //     headerNavOuter.style.height = `${headerNav.offsetHeight}px`;
-        // }
-
-        // const headroom = new Headroom(header);
-        // headroom.init();
 
         $('.section_three-news .list-news').slick({
             slidesToShow: 3,

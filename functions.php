@@ -27,18 +27,7 @@ function webbeb_scripts()
         $theme_uri . '/assets/css/style.css',
         [],
         file_exists($theme_dir . '/assets/css/style.css') ? filemtime($theme_dir . '/assets/css/style.css') : null
-    );
-
-    $headroom_path = $theme_dir . '/html/assets/js/headroom.js';
-    $headroom_ver  = file_exists($headroom_path) ? filemtime($headroom_path) : null;
-
-    wp_enqueue_script(
-        'headroom',
-        $theme_uri . '/html/assets/js/headroom.js',
-        [],
-        $headroom_ver,
-        true
-    );
+    ); 
 
     wp_enqueue_script(
         'slickjs',

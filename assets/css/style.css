@@ -243,8 +243,7 @@ blockquote:last-child { margin-bottom: 0; }
 .header-nav {  background: var(--color-background); padding: 5px 0; border-bottom: 1px solid var(--border-color); }
 .header-nav .shell { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
 .header-nav-sidebar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; } 
-.header .socials { margin-right: 5px; }
-.header .btn-burger { margin-left: 10px; }
+.header .socials { margin-right: 5px; } 
 .header .btn-header-search { margin-left: 20px; margin-right: -10px; }
 .header .weather { border-right: 1px solid #DDDDDD; padding-right: 20px; }
 
@@ -262,6 +261,7 @@ blockquote:last-child { margin-bottom: 0; }
 	.header .btn-header-search { margin-left: 0; }
 	.header .weather { border: 0; padding: 0; }
 	.header-nav-sidebar { display: none; }
+	.header .btn-header-search { margin: 0 5px; }
 	.header-top-aside { display: none; }
 	.header-top-aside-mobile {display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
 	.header-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; z-index: 99; background: var(--color-background); }
@@ -287,6 +287,7 @@ blockquote:last-child { margin-bottom: 0; }
 	.nav > ul li:before { display: none; }
 }
 @media screen and (max-width:767px) {
+	.nav > ul li  { margin-right: 10px;   }
 	.nav > ul a  { padding: 10px; font-size: 18px; }
 }
 

@@ -23,13 +23,11 @@
                 <p>
                     Page not Found
                 </p>
-				
+
                 <p>
                     <a class="btn" href="<?php echo esc_url(home_url('/')); ?>">Go Home</a>
                 </p>
-            </div>
-
-
+            </div> 
         </div>
     </section><!-- /.shell -->
 </div>

@@ -78,6 +78,36 @@
         toggleFiveNewsSlider();
         $(window).on('resize orientationchange', toggleFiveNewsSlider);
 
+        // Initialize Select2 for search
+        if ($('#search-select').length && typeof $.fn.select2 !== 'undefined' && typeof devrixAjax !== 'undefined') {
+            $('#search-select').select2({
+                placeholder: 'Search...',
+                allowClear: true,
+                minimumInputLength: 2,
+                ajax: {
+                    url: devrixAjax.ajaxurl,
+                    dataType: 'json',
+                    delay: 300,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            action: 'devrix_select2_search'
+                        };
+                    },
+                    processResults: function(data) {
+                        return {
+                            results: data.results
+                        };
+                    },
+                    cache: true
+                }
+            }).on('select2:select', function(e) {
+                var data = e.params.data;
+                if (data.url) {
+                    window.location.href = data.url;
+                }
+            });
+        }
         
 	}); //jQuery end
 })(jQuery, window, document);  

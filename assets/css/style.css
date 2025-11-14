@@ -572,3 +572,17 @@ section:not([class]) { padding: 50px 0; }
 .nav-links a { display: inline-block; text-decoration: none; padding: 10px;  transition: color .3s; } 
 .nav-links a:hover { color: var(--hover-bg); } 
 .nav-links span { display: inline-block; text-decoration: none; padding: 10px; user-select: none; } 
+
+/* ------------------------------------------------------------ *\
+	select2 selection
+\* ------------------------------------------------------------ */
+
+.search-form .select2-container { width: calc(100% - 60px) !important; }
+.select2-container .select2-selection--single { height: 40px; }
+.select2-container .select2-selection__arrow { opacity: 0; }
+.select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 40px; }
+.select2-container--default .select2-selection--single .select2-selection__arrow { height: 40px; }
+.select2-container--default .select2-selection--single .select2-selection__arrow b { border-color: var(--color-text-primary) transparent transparent transparent; }
+.select2-container--default .select2-selection--single .select2-selection__arrow b:before { border-color: var(--color-text-primary) transparent transparent transparent; }
+.select2-container--default .select2-selection--single .select2-selection__arrow b:after { border-color: var(--color-text-primary) transparent transparent transparent; }
+.select2-container--default .select2-selection--single .select2-selection__arrow b:before { border-color: var(--color-text-primary) transparent transparent transparent; }

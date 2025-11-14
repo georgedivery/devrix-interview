@@ -1,4 +1,4 @@
-# Webbeb Theme
+# DevriX Theme
 
 Custom WordPress theme designed to work with the Advanced Custom Fields (ACF) plugin.  
 The theme follows the **PSR-2** coding standard.

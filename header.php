@@ -105,12 +105,7 @@
 
             <div class="header-search">
                 <div class="shell">
-                    <div class="search-form">
-                        <input name="search" type="text" placeholder="Search...">
-                        <button>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </button>
-                    </div>
+                    <?php get_search_form(); ?>
                 </div>
             </div>
         </div>

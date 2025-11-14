@@ -55,6 +55,20 @@ function webbeb_scripts()
 }
 add_action('wp_enqueue_scripts', 'webbeb_scripts');
 
+// Customize search form HTML
+function devrix_custom_search_form($form) {
+    $form = '<div class="search-form">
+        <form role="search" method="get" action="' . esc_url(home_url('/')) . '">
+            <input type="search" name="s" placeholder="Search..." value="' . get_search_query() . '" />
+            <button type="submit">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+        </form>
+    </div>';
+    
+    return $form;
+}
+add_filter('get_search_form', 'devrix_custom_search_form');
 
 // Create custom post type "Campaigns"
 // Example

@@ -1,28 +1,5 @@
 <?php
-$featured_post_field = get_sub_field('featured_post');
-$featured_post        = null;
-
-if ($featured_post_field instanceof WP_Post) {
-    $featured_post = $featured_post_field;
-} elseif (is_numeric($featured_post_field)) {
-    $featured_post = get_post((int) $featured_post_field);
-} elseif (is_array($featured_post_field) && isset($featured_post_field['ID'])) {
-    $featured_post = get_post((int) $featured_post_field['ID']);
-}
-
-$featured_post_id      = $featured_post instanceof WP_Post ? $featured_post->ID : 0;
-$featured_post_title   = $featured_post_id ? get_the_title($featured_post_id) : '';
-$featured_post_link    = $featured_post_id ? get_permalink($featured_post_id) : '#';
-$featured_post_excerpt = $featured_post_id ? get_the_excerpt($featured_post_id) : '';
-
-if ($featured_post_id && empty($featured_post_excerpt)) {
-    $featured_post_excerpt = wp_trim_words($featured_post->post_content ?? '', 30);
-}
-
-$featured_post_image     = $featured_post_id ? get_the_post_thumbnail_url($featured_post_id, 'large') : '';
-$default_featured_image   = get_theme_file_uri('assets/images/featured.jpg');
-$featured_post_image      = $featured_post_image ?: $default_featured_image;
-
+$featured_post = get_sub_field('featured_post'); 
 $latest_posts_raw = get_posts([
     'post_type'           => 'post',
     'post_status'         => 'publish',
@@ -51,6 +28,13 @@ if (!empty($latest_posts_raw)) {
     <div class="shell">
         <div class="shell-flex">
             <div class="section-content">
+                <?php if ($featured_post) : 
+                    $featured_post_image = get_the_post_thumbnail_url($featured_post->ID, 'large') ?: get_theme_file_uri('assets/images/featured.jpg');
+                    $featured_post_excerpt = get_the_excerpt($featured_post->ID);
+                    if (empty($featured_post_excerpt)) {
+                        $featured_post_excerpt = wp_trim_words($featured_post->post_content ?? '', 30);
+                    }
+                ?>
                 <article class="article-news-featured">
                     <div class="article-image">
                         <div class="article-image-bg"></div>
@@ -62,28 +46,23 @@ if (!empty($latest_posts_raw)) {
                         </div>
                     </div>
 
-                    <?php if ($featured_post_id) : ?>
-                        <h2 class="article-news-title">
-                            <a href="<?php echo esc_url($featured_post_link); ?>">
-                                <?php echo esc_html($featured_post_title); ?>
-                            </a>
-                        </h2>
-
-                        <?php if (!empty($featured_post_excerpt)) : ?>
-                            <p class="article-news-excerpt">
-                                <?php echo esc_html($featured_post_excerpt); ?>
-                            </p>
-                        <?php endif; ?>
-
-                        <a href="<?php echo esc_url($featured_post_link); ?>" class="btn">
-                            <?php esc_html_e('Read more', 'devrix'); ?>
+                    <h2 class="article-news-title">
+                        <a href="<?php echo esc_url(get_permalink($featured_post->ID)); ?>">
+                            <?php echo esc_html(get_the_title($featured_post->ID)); ?>
                         </a>
-                    <?php else : ?>
-                        <h2 class="article-news-title">
-                            <span><?php esc_html_e('Select a featured post to display.', 'devrix'); ?></span>
-                        </h2>
+                    </h2>
+
+                    <?php if (!empty($featured_post_excerpt)) : ?>
+                    <p class="article-news-excerpt">
+                        <?php echo esc_html($featured_post_excerpt); ?>
+                    </p>
                     <?php endif; ?>
+
+                    <a href="<?php echo esc_url(get_permalink($featured_post->ID)); ?>" class="btn">
+                        <?php esc_html_e('Read more', 'devrix'); ?>
+                    </a>
                 </article>
+                <?php endif; ?>
             </div>
 
             <div class="section-aside">
@@ -92,59 +71,59 @@ if (!empty($latest_posts_raw)) {
                 </h6>
 
                 <?php if (!empty($latest_posts)) : ?>
-                    <ul class="list-latest-news">
-                        <?php foreach ($latest_posts as $latest_post) : ?>
-                            <li>
-                                <div>
-                                    <a href="<?php echo esc_url($latest_post['link']); ?>">
-                                        <?php echo esc_html($latest_post['title']); ?>
-                                    </a>
+                <ul class="list-latest-news">
+                    <?php foreach ($latest_posts as $latest_post) : ?>
+                    <li>
+                        <div>
+                            <a href="<?php echo esc_url($latest_post['link']); ?>">
+                                <?php echo esc_html($latest_post['title']); ?>
+                            </a>
 
-                                    <?php if (!empty($latest_post['author']) || !empty($latest_post['date'])) : ?>
-                                        <span>
-                                            <?php if (!empty($latest_post['author'])) : ?>
-                                                <?php echo esc_html($latest_post['author']); ?>
-                                            <?php endif; ?>
-                                            <?php if (!empty($latest_post['author']) && !empty($latest_post['date'])) : ?>
-                                                -
-                                            <?php endif; ?>
-                                            <?php if (!empty($latest_post['date'])) : ?>
-                                                <?php echo esc_html($latest_post['date']); ?>
-                                            <?php endif; ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <?php if (!empty($latest_post['author']) || !empty($latest_post['date'])) : ?>
+                            <span>
+                                <?php if (!empty($latest_post['author'])) : ?>
+                                <?php echo esc_html($latest_post['author']); ?>
+                                <?php endif; ?>
+                                <?php if (!empty($latest_post['author']) && !empty($latest_post['date'])) : ?>
+                                -
+                                <?php endif; ?>
+                                <?php if (!empty($latest_post['date'])) : ?>
+                                <?php echo esc_html($latest_post['date']); ?>
+                                <?php endif; ?>
+                            </span>
+                            <?php endif; ?>
+                        </div>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
 
-                    <ul class="list-latest-news-mobile">
-                        <?php foreach ($latest_posts as $latest_post) : ?>
-                            <li>
-                                <div>
-                                    <a href="<?php echo esc_url($latest_post['link']); ?>">
-                                        <?php echo esc_html($latest_post['title']); ?>
-                                    </a>
+                <ul class="list-latest-news-mobile">
+                    <?php foreach ($latest_posts as $latest_post) : ?>
+                    <li>
+                        <div>
+                            <a href="<?php echo esc_url($latest_post['link']); ?>">
+                                <?php echo esc_html($latest_post['title']); ?>
+                            </a>
 
-                                    <?php if (!empty($latest_post['author']) || !empty($latest_post['date'])) : ?>
-                                        <span>
-                                            <?php if (!empty($latest_post['author'])) : ?>
-                                                <?php echo esc_html($latest_post['author']); ?>
-                                            <?php endif; ?>
-                                            <?php if (!empty($latest_post['author']) && !empty($latest_post['date'])) : ?>
-                                                -
-                                            <?php endif; ?>
-                                            <?php if (!empty($latest_post['date'])) : ?>
-                                                <?php echo esc_html($latest_post['date']); ?>
-                                            <?php endif; ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                            <?php if (!empty($latest_post['author']) || !empty($latest_post['date'])) : ?>
+                            <span>
+                                <?php if (!empty($latest_post['author'])) : ?>
+                                <?php echo esc_html($latest_post['author']); ?>
+                                <?php endif; ?>
+                                <?php if (!empty($latest_post['author']) && !empty($latest_post['date'])) : ?>
+                                -
+                                <?php endif; ?>
+                                <?php if (!empty($latest_post['date'])) : ?>
+                                <?php echo esc_html($latest_post['date']); ?>
+                                <?php endif; ?>
+                            </span>
+                            <?php endif; ?>
+                        </div>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
                 <?php else : ?>
-                    <p><?php esc_html_e('No recent posts found.', 'devrix'); ?></p>
+                <p><?php esc_html_e('No recent posts found.', 'devrix'); ?></p>
                 <?php endif; ?>
 
                 <div class="text_right">

@@ -1,6 +1,4 @@
-<?php
-if (!function_exists('have_rows') || !function_exists('get_field')) :
-	?>
+<?php if (!function_exists('have_rows') || !function_exists('get_field')) : ?>
 <section>
     <div class="shell">
         <h2>
@@ -8,10 +6,9 @@ if (!function_exists('have_rows') || !function_exists('get_field')) :
         </h2>
     </div>
 </section>
-<?php
-	return;
-endif;
+<?php return; endif; ?>
 
+<?php  
 $sections_field = get_field('sections');
 
 if (!$sections_field) :

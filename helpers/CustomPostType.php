@@ -1,14 +1,8 @@
 <?php
-/**
- * Custom class to create new post types.
- */
+// Custom class to create new post types.
 class CustomPostType
 {
-    private $settings;
-
-    /**
-     * 
-     */
+    private $settings; 
     public function __construct($name, $singular_name, $slug, $taxonomies = [])
     {
         $this->settings = [

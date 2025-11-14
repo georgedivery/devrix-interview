@@ -1,7 +1,7 @@
 <?php
 $section_title          = get_sub_field('title');
-$section_revert         = (bool) get_sub_field('revert');
-$section_has_background = (bool) get_sub_field('background');
+$section_revert         = get_sub_field('revert');
+$section_has_background = get_sub_field('background');
 
 $requested_posts = (int) get_sub_field('number_posts');
 $requested_posts = in_array($requested_posts, [3, 4, 5], true) ? $requested_posts : 5;
@@ -9,7 +9,7 @@ $requested_posts = in_array($requested_posts, [3, 4, 5], true) ? $requested_post
 $category_field = get_sub_field('category');
 $category_ids   = [];
 
-if (!empty($category_field)) {
+if ($category_field) {
     $category_values = is_array($category_field) ? $category_field : [$category_field];
 
     foreach ($category_values as $category_value) {
@@ -37,7 +37,7 @@ $query_args = [
     'ignore_sticky_posts' => true,
 ];
 
-if (!empty($category_ids)) {
+if ($category_ids) {
     $query_args['category__in'] = $category_ids;
 }
 
@@ -48,7 +48,7 @@ wp_reset_postdata();
 if (empty($section_posts)) : ?>
 <section class="section-category-news section_three-news<?php echo $section_revert ? ' revert' : ''; ?>">
     <div class="shell">
-        <?php if (!empty($section_title)) : ?>
+        <?php if ($section_title) : ?>
         <div class="section-head">
             <h2 class="section-title"><?php echo esc_html($section_title); ?></h2>
         </div>

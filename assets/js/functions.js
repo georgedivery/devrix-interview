@@ -24,16 +24,8 @@
         $('.popup-subscribe-close, .popup-subscribe-overlay').on('click', function(){
             $('.popup-subscribe').removeClass('active');
             $('body').removeClass('popup-open');
-        });
-
-        // Close popup on ESC key
-        $(document).on('keydown', function(e){
-            if (e.key === 'Escape' && $('.popup-subscribe').hasClass('active')) {
-                $('.popup-subscribe').removeClass('active');
-                $('body').removeClass('popup-open');
-            }
-        });
-
+        }); 
+        
         $('.section_three-news .list-news').slick({
             slidesToShow: 3,
             slidesToScroll: 1,

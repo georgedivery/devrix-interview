@@ -55,10 +55,12 @@
                             <?php endif; ?>
                         </ul>
 
+                        <?php if (get_field('show_subscribe_button', 'option') == true) : ?>
                         <a href="#" class="btn btn_subscribe">
                             <span>Subscribe for more</span>
                             <i class="fa-regular fa-bell"></i>
                         </a>
+                        <?php endif; ?>
                     </div>
 
                     <div class="header-top-aside-mobile">
@@ -113,3 +115,20 @@
                 </div>
             </div>
         </header>
+
+        <div class="popup-subscribe">
+            <div class="popup-subscribe-overlay"></div>
+            <div class="popup-subscribe-content">
+                <button class="popup-subscribe-close" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="popup-subscribe-form">
+                    <?php 
+                    $subscribe_form = get_field('subscribe_form', 'option');
+                    if ($subscribe_form) {
+                        echo do_shortcode($subscribe_form);
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>

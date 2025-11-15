@@ -73,4 +73,22 @@ These credentials are provided for testing purposes:
 
 Username: admin
 Password: VrQwcc0lDQ%4Wg*b&j
- 
+
+## Database URL Update (After Import)
+
+If you are installing the project on a new environment, update the database URLs to match your domain.
+Run the following SQL queries inside your database (phpMyAdmin, Adminer, or MySQL CLI):
+
+UPDATE wp_options 
+SET option_value = REPLACE(option_value, 'http://devrix.test', 'http://yoursite') 
+WHERE option_name = 'home' 
+   OR option_name = 'siteurl';
+
+UPDATE wp_posts 
+SET post_content = REPLACE(post_content, 'http://devrix.test', 'http://yoursite');
+
+UPDATE wp_postmeta 
+SET meta_value = REPLACE(meta_value, 'http://devrix.test', 'http://yoursite');
+
+UPDATE wp_posts 
+SET guid = REPLACE(guid, 'http://devrix.test', 'http://yoursite');

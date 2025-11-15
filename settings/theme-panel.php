@@ -95,8 +95,7 @@ function webbeb_export_page()
 function webbeb_add_theme_menu_item()
 {
 	add_menu_page("Webbeb Panel", "Webbeb Panel", "manage_options", "webbeb-panel", "webbeb_settings_page", null, 99);
-//	add_submenu_page("webbeb-panel", "Import ACF Fields", "Import", "manage_options", "webbeb-import-page", 'webbeb_import_page', 99);
-//	add_submenu_page("webbeb-panel", "Export ACF Fields", "Export", "manage_options", "webbeb-export-page", 'webbeb_export_page', 99);
+ 
 }
 
 add_action("admin_menu", "webbeb_add_theme_menu_item");
@@ -109,26 +108,14 @@ function display_sync_front_page_element()
 	<?php
 }
 
-/**
- *
- *	function display_sync_hero_section_element()
- *	{
- *		?>
- *			<input type="checkbox" name="sync_hero_section" value="1" <?php checked(1, get_option('sync_hero_section'), true); ?> />
- *		<?php
- *	}
- *
- */
-
+ 
 function display_theme_panel_fields()
 {
 	add_settings_section("section", "Sync Settings", null, "theme-options");
 
 	add_settings_field("sync_front_page", "Sync Front", "display_sync_front_page_element", "theme-options", "section");
-	// add_settings_field("sync_hero_section", "Sync Hero Section", "display_sync_hero_section_element", "theme-options", "section");
-
-	register_setting("section", "sync_front_page");
-	// register_setting("section", "sync_hero_section");
+ 
+	register_setting("section", "sync_front_page"); 
 }
 
 add_action("admin_init", "display_theme_panel_fields");

@@ -1,6 +1,6 @@
 # DevriX Theme
 
-Custom WordPress theme designed to work with the Advanced Custom Fields (ACF) plugin.  
+Custom WordPress theme designed to work with the Advanced Custom Fields (ACF) plugin.
 
 ---
 
@@ -9,14 +9,13 @@ Custom WordPress theme designed to work with the Advanced Custom Fields (ACF) pl
 - WordPress 6.x+
 - PHP 7.4+ (or 8.x, depending on the project stack)
 - MySQL 5.7+ / MariaDB
-- Composer (optional, if you use it in the project)
-- Node.js & npm/yarn (if you decide to work with the frontend build tools)
 
 Required plugins:
 
 - Advanced Custom Fields (ACF)
 - FakerPress (for generating dummy content)
-- Theme-recommended plugins are pre-configured and will appear as **"required/recommended plugins"** inside the WordPress admin after theme activation.
+
+Theme-recommended plugins are pre-configured and will appear as **required/recommended plugins** in the WordPress admin after theme activation.
 
 ---
 
@@ -24,11 +23,11 @@ Required plugins:
 
 - Custom WordPress theme built specifically for this project/interview task.
 - Tight integration with **ACF** for managing custom fields.
-- Exported ACF field groups as JSON located in:  
-  `sync/export.json` – used to import all custom fields on a fresh installation.
-- A dedicated folder for **frontend-only implementation** (HTML/CSS/JS) to preview the UI separately from WordPress.
-- Included **pixel-perfect reference screenshot** to compare the final implementation with the design.
-- Dummy posts are generated with **FakerPress** for easier preview and testing.
+- Exported ACF field groups stored as JSON in:  
+  `sync/export.json` — used to import all custom fields on a fresh installation.
+- Dedicated folder for **frontend-only implementation** (HTML/CSS/JS) to preview the UI separately.
+- Included **pixel-perfect reference screenshot** for design comparison.
+- Dummy posts generated via **FakerPress** for visual testing.
 
 ---
 
@@ -40,20 +39,38 @@ Required plugins:
    cd wp-content/themes
    git clone <repository-url> webbeb-theme
 
-2. Activate the theme from Appearance → Themes in the WordPress admin.
+2. Activate the theme from
+Appearance → Themes in the WordPress admin.
 
-3. Install and activate the required plugins (they will appear as required/recommended after theme activation).
+3. Install and activate required plugins
+(they will appear as required/recommended after theme activation).
 
 4. Import ACF fields:
 
-5. Go to Custom Fields → Tools.
+Go to Custom Fields → Tools
 
-Use the JSON file located in sync/export.json to Import Field Groups.
+Use the JSON file located in:
+sync/export.json
+to Import Field Groups
 
-(Optional) Generate dummy content with FakerPress:
+5. (Optional) Generate dummy content with FakerPress:
 
-6. Go to FakerPress in the admin.
+Go to FakerPress in the admin
 
-7. Configure the type and amount of posts you want.
+Configure the amount and type of posts
 
-Generate dummy data for visual testing.
+Generate dummy data for testing layouts
+
+## Archived Project Version
+
+You can download the full archived version of the project (ready for installation) here:
+
+👉 https://drive.google.com/drive/folders/16AY8JgQZx0fy43URUCVwxlqdcoYgWWKo?usp=sharing
+
+## Admin Credentials (Demo Environment)
+
+These credentials are provided for testing purposes:
+
+Username: admin
+Password: VrQwcc0lDQ%4Wg*b&j
+ 

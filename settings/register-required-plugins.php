@@ -22,26 +22,26 @@ function webbeb_register_required_plugins()
             'force_activation'   => false,
             'force_deactivation' => false,
         ),
-        array(
-            'name'     => 'ACF to REST API',
-            'slug'     => 'acf-to-rest-api',
-            'required' => true,
-        ),
-        array(
-            'name'     => 'ACF Content Analysis for Yoast SEO',
-            'slug'     => 'acf-content-analysis-for-yoast-seo',
-            'required' => false,
-        ),
-        array(
-            'name'     => 'Laravel DD for WordPress',
-            'slug'     => 'laravel-dd',
-            'required' => false,
-        ),
-        array(
-            'name'     => 'Yoast SEO',
-            'slug'     => 'wordpress-seo',
-            'required' => false,
-        ),
+        // array(
+        //     'name'     => 'ACF to REST API',
+        //     'slug'     => 'acf-to-rest-api',
+        //     'required' => true,
+        // ),
+        // array(
+        //     'name'     => 'ACF Content Analysis for Yoast SEO',
+        //     'slug'     => 'acf-content-analysis-for-yoast-seo',
+        //     'required' => false,
+        // ),
+        // array(
+        //     'name'     => 'Laravel DD for WordPress',
+        //     'slug'     => 'laravel-dd',
+        //     'required' => false,
+        // ),
+        // array(
+        //     'name'     => 'Yoast SEO',
+        //     'slug'     => 'wordpress-seo',
+        //     'required' => false,
+        // ),
         array(
             'name'     => 'Disable Gutenberg',
             'slug'     => 'disable-gutenberg',
